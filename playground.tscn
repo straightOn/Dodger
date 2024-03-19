@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd1xydi7xsgbw"]
+
+[ext_resource type="Script" path="res://playground.gd" id="1_pshdb"]
+[ext_resource type="PackedScene" uid="uid://dr3lki67sfcew" path="res://spawner.tscn" id="2_nhbwh"]
+[ext_resource type="PackedScene" uid="uid://uy2bku2mnetd" path="res://player.tscn" id="3_dqruo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftn8x"]
+size = Vector2(1080, 100)
+
+[node name="Playground" type="Node2D"]
+script = ExtResource("1_pshdb")
+
+[node name="Despawner" type="Area2D" parent="."]
+position = Vector2(540, 800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Despawner"]
+shape = SubResource("RectangleShape2D_ftn8x")
+
+[node name="Spawner" parent="." instance=ExtResource("2_nhbwh")]
+position = Vector2(123, 34)
+
+[node name="Spawner2" parent="." instance=ExtResource("2_nhbwh")]
+position = Vector2(385, 37)
+
+[node name="Spawner3" parent="." instance=ExtResource("2_nhbwh")]
+position = Vector2(625, 52)
+
+[node name="Spawner4" parent="." instance=ExtResource("2_nhbwh")]
+position = Vector2(891, 27)
+
+[node name="Spawner5" parent="." instance=ExtResource("2_nhbwh")]
+position = Vector2(243, 74)
+
+[node name="Spawner6" parent="." instance=ExtResource("2_nhbwh")]
+position = Vector2(486, 95)
+
+[node name="Spawner7" parent="." instance=ExtResource("2_nhbwh")]
+position = Vector2(745, 92)
+
+[node name="Spawner8" parent="." instance=ExtResource("2_nhbwh")]
+position = Vector2(993, 76)
+
+[node name="Player" parent="." instance=ExtResource("3_dqruo")]
+position = Vector2(539, 603)
+
+[connection signal="body_entered" from="Despawner" to="." method="_on_despawner_body_entered"]
